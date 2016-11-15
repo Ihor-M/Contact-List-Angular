@@ -9,6 +9,15 @@ module.exports = angular
         controller: MainContactListController
     });
 
-function MainContactListController() {
+function MainContactListController(ContactListFactory) {
     var ctrl = this;
+
+    this.$routerOnActivate = function (next) {
+        var id = next.params.id;
+
+        ContactListFactory.GetContactsList().get().$promise.then(function (response) {
+            ctrl.contactList = response.allContacts
+        })
+    };
+
 }

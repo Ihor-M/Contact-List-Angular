@@ -7,7 +7,6 @@ module.exports = angular
 function ContactListFactory($resource, API_URL) {
     return {
         GetContactsList: getContactsList,
-        GetContact: getContact,
         CreateContact: createContact,
         UpdateContact: updateContact,
         DestroyContact: destroyContact
@@ -18,15 +17,6 @@ function ContactListFactory($resource, API_URL) {
             get: {
                 method: "GET",
                 url: API_URL + "contacts"
-            }
-        })
-    }
-
-    function getContact(id) {
-        return $resource('', {}, {
-            get: {
-                method: "GET",
-                url: API_URL + "contacts/:id", id: "@id"
             }
         })
     }

@@ -10,7 +10,8 @@ module.exports = angular
       [
         // {path: '/cars', name: 'CarsLink', component: 'carInfoComponent'},
         // {path: '/contacts', name: 'ContactsLink', component: 'contacts' },
-        {path: '/contact-list', name: "ContactsList", component: 'mainContactListComponent', useAsDefault: true }
+        {path: '/', name: "ContactsList", component: 'mainContactListComponent'},
+        {path: '/contact/:id', name: "ShowContact", component: 'showContactComponent'}
       ]
     });
 
