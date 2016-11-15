@@ -9,7 +9,8 @@ module.exports = angular
     $routeConfig:
       [
         {path: '/cars', name: 'CarsLink', component: 'carInfoComponent', useAsDefault: true },
-        {path: '/contacts', name: 'ContactsLink', component: 'contacts' }
+        {path: '/contacts', name: 'ContactsLink', component: 'contacts' },
+        {path: '/contact-list', name: "ContactsList", component: 'contactList' }
       ]
     });
 
