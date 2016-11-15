@@ -32,6 +32,7 @@
     "@angular/router": "^0.2.0",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.0",
-    "angular-ui-notification": "^0.2.0"
+    "angular-ui-notification": "^0.2.0",
+    "angular-resource": "^1.5.5"
   }
 }
