@@ -10,3 +10,16 @@
     margin: 0;
     padding: 0;
 }
+
+.beforeFive {
+    background: #ff6461;
+}
+.beforeFive > td > a {
+    color: white;
+}
+.beforeTen {
+    background: #fffb85;
+}
+.beforeTen >td > a {
+    color: #ca9a1b;
+}
