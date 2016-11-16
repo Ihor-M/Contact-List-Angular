@@ -9,23 +9,35 @@ module.exports = angular
         controller: MainContactListController
     });
 
-function MainContactListController(ContactListFactory) {
+function MainContactListController(ContactListFactory, Notification) {
     var ctrl = this;
-    //
-    // this.$routerOnActivate = function (next) {
-    //     var id = next.params.id;
 
-        ContactListFactory.GetContactsList().get().$promise.then(function (response) {
-            ctrl.contactList = response.allContacts;
-        });
+    ContactListFactory.GetContactsList().get().$promise.then(function (response) {
+        ctrl.contactList = response.allContacts;
+    });
 
-        ctrl.deleteContact = function(id)
-        {
-            console.log(id);
-            ContactListFactory.DestroyContact(id).destroy().$promise.then(function (response) {
+    ctrl.deleteContact = function(id)
+    {
+        ContactListFactory.DestroyContact(id).destroy().$promise.then(function (response) {
+            if (response.allContacts) {
+                Notification.success({
+                    message: "<p class='bg-success' style='padding: 20px'>Contact was successfully deleted.<a href='#' " +
+                    "class='close' data-dismiss='alert' aria-label='close'>&times;</a></p>",
+                    delay: 500,
+                    positionX: 'right',
+                    positionY: 'bottom'
+                });
                 ctrl.contactList = response.allContacts;
-            })
-        };
-    // };
+            } else {
+                Notification.warning({
+                    message: "<p class='bg-danger' style='padding: 20px'>Can't delete.<a href='#' " +
+                    "class='close' data-dismiss='alert' aria-label='close'>&times;</a></p>",
+                    delay: 500,
+                    positionX: 'right',
+                    positionY: 'bottom'
+                });
+            }
+        })
+    };
 
 }
