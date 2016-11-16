@@ -6,25 +6,43 @@
                 <label for="first_name">Name</label>
                 <input type="text" id="first_name" class="form-control" placeholder="John" ng-model="contact.first_name">
             </div>
+            <div class="form-group error" ng-if="$ctrl.error.first_name" ng-hide="$ctrl.success">
+                <p>{{ $ctrl.error.first_name.toString() }}</p>
+            </div>
             <div class="form-group">
                 <label for="last_name">Surname</label>
                 <input type="text" id="last_name" class="form-control" placeholder="Doe" ng-model="contact.last_name">
+            </div>
+            <div class="form-group error" ng-if="$ctrl.error.last_name" ng-hide="$ctrl.success">
+                <p>{{ $ctrl.error.last_name.toString() }}</p>
             </div>
             <div class="form-group">
                 <label for="phone_number">Phone number</label>
                 <input type="text" id="phone_number" class="form-control" placeholder="+380110011000" ng-model="contact.phone_number">
             </div>
+            <div class="form-group error" ng-if="$ctrl.error.phone_number" ng-hide="$ctrl.success">
+                <p>{{ $ctrl.error.phone_number.toString() }}</p>
+            </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" id="email" class="form-control" placeholder="example@email.com" ng-model="contact.email">
+            </div>
+            <div class="form-group error" ng-if="$ctrl.error.email" ng-hide="$ctrl.success">
+                <p>{{ $ctrl.error.email.toString() }}</p>
             </div>
             <div class="form-group">
                 <label for="birthday">Birthday date</label>
                 <input type="date" id="birthday" class="form-control" ng-model="contact.birthday_date">
             </div>
+            <div class="form-group error" ng-if="$ctrl.error.birthday_date" ng-hide="$ctrl.success">
+                <p>{{ $ctrl.error.birthday_date.toString() }}</p>
+            </div>
             <div class="form-group">
                 <label for="basic_information">Basic Information</label>
                 <input type="text" id="basic_information" class="form-control" placeholder="Who is this person for you?" ng-model="contact.basic_info">
+            </div>
+            <div class="form-group error" ng-if="$ctrl.error.basic_info" ng-hide="$ctrl.success">
+                <p>{{ $ctrl.error.basic_info.toString() }}</p>
             </div>
         </form>
         <input type="submit" class="btn btn-primary" value="Create" ng-click="$ctrl.create(contact)">

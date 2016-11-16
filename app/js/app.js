@@ -11,18 +11,8 @@ angular.module('app',
       'ngResource',
       'ui-notification'
     ])
-    .config(function($locationProvider, $httpProvider, NotificationProvider) {
+    .config(function($locationProvider) {
         $locationProvider.html5Mode(true);
-
-        NotificationProvider.setOptions({
-            delay: 10000,
-            startTop: 20,
-            startRight: 10,
-            verticalSpacing: 20,
-            horizontalSpacing: 20,
-            positionX: 'left',
-            positionY: 'bottom'
-        });
     })
   .constant('API_URL', 'http://localhost:8000/api/')
   .value('$routerRootComponent', 'appMain');
