@@ -11,13 +11,21 @@ module.exports = angular
 
 function MainContactListController(ContactListFactory) {
     var ctrl = this;
-
-    this.$routerOnActivate = function (next) {
-        var id = next.params.id;
+    //
+    // this.$routerOnActivate = function (next) {
+    //     var id = next.params.id;
 
         ContactListFactory.GetContactsList().get().$promise.then(function (response) {
-            ctrl.contactList = response.allContacts
-        })
-    };
+            ctrl.contactList = response.allContacts;
+        });
+
+        ctrl.deleteContact = function(id)
+        {
+            console.log(id);
+            ContactListFactory.DestroyContact(id).destroy().$promise.then(function (response) {
+                ctrl.contactList = response.allContacts;
+            })
+        };
+    // };
 
 }

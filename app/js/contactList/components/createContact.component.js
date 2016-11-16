@@ -9,6 +9,8 @@ module.exports = angular
         controller: CreateContactController
     });
 
-function CreateContactController() {
+function CreateContactController(ContactListFactory) {
     var ctrl = this;
+
+
 }

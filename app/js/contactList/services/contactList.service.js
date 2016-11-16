@@ -43,7 +43,7 @@ function ContactListFactory($resource, API_URL) {
         return $resource('', {}, {
             destroy: {
                 method: "DELETE",
-                url: API_URL + "contacts/:id", id: "@id"
+                url: API_URL + "contacts/" + id
             }
         })
     }
