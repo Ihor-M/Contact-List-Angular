@@ -8,7 +8,6 @@ function ContactListFactory($resource, API_URL) {
     return {
         GetContactsList: getContactsList,
         CreateContact: createContact,
-        UpdateContact: updateContact,
         DestroyContact: destroyContact
     };
 
@@ -26,15 +25,6 @@ function ContactListFactory($resource, API_URL) {
             post: {
                 method: "POST",
                 url: API_URL + "contacts"
-            }
-        })
-    }
-
-    function updateContact(id) {
-        return $resource('', {}, {
-            update: {
-                method: "PUT",
-                url: API_URL + "contacts/:id", id: "@id"
             }
         })
     }

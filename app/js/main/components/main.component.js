@@ -8,8 +8,6 @@ module.exports = angular
     transclude: true,
     $routeConfig:
       [
-        // {path: '/cars', name: 'CarsLink', component: 'carInfoComponent'},
-        // {path: '/contacts', name: 'ContactsLink', component: 'contacts' },
         {path: '/', name: "ContactsList", component: 'mainContactListComponent'},
         {path: '/contact/:id', name: "ShowContact", component: 'showContactComponent'},
         {path: '/create', name: "CreateContact", component: 'createContactComponent'}
