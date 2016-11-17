@@ -17,8 +17,25 @@ function ShowContactController(ShowContactFactory) {
 
         ShowContactFactory.GetContact(id).get().$promise.then(function (response) {
           ctrl.contact = response.contact;
-        })
+        });
 
+        ctrl.showEditmode = function (bool) {
+            ctrl.editmode = bool;
+        };
+
+        ctrl.update = function (contact) {
+            var id = ctrl.contact.id;
+           ShowContactFactory.UpdateContact(id).update(id, contact).$promise.then(function (response) {
+               if (response.code == 422) {
+                   ctrl.error = response.errors;
+               } else {
+                   ctrl.success = true;
+                   ctrl.contact = response.contact;
+                   alert("Contact was updated successfully");
+                   ctrl.editmode = false;
+               }
+           })
+        }
     }
 
 

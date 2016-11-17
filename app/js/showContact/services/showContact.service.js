@@ -6,13 +6,23 @@ module.exports = angular
 
 function ShowContactFactory($resource, API_URL) {
     return {
-        GetContact: getContact
+        GetContact: getContact,
+        UpdateContact: updateContact
     };
 
     function getContact(id) {
         return $resource('', {}, {
             get: {
                 method: "GET",
+                url: API_URL + "contacts/" + id
+            }
+        })
+    }
+
+    function updateContact(id) {
+        return $resource('', {}, {
+            update: {
+                method: "PUT",
                 url: API_URL + "contacts/" + id
             }
         })

@@ -1,3 +1,96 @@
-<h3>Show contact</h3>
 
-<pre>{{$ctrl.contact}}</pre>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3>Show contact</h3>
+        <a href="/" class="btn btn-success">Back to contact list</a>
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="heads">
+                    <li>Name</li>
+                    <li>Surname</li>
+                    <li>Phone number</li>
+                    <li>Email</li>
+                    <li>Birthday date</li>
+                    <li>Basic info</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="data">
+                    <li>
+                        <span ng-hide="$ctrl.editmode">{{$ctrl.contact.first_name}}</span>
+                        <div class="form-group" ng-show="$ctrl.editmode">
+                            <input type="text" class="form-control" ng-model="$ctrl.contact.first_name" name="contact.first_name">
+                        </div>
+                    </li>
+                    <li>
+                        <span ng-hide="$ctrl.editmode">{{$ctrl.contact.last_name}}</span>
+                        <div class="form-group" ng-show="$ctrl.editmode">
+                            <input type="text" id="last_name" class="form-control" name="contact.last_name" ng-model="$ctrl.contact.last_name">
+                        </div>
+                    </li>
+                    <li>
+                        <span ng-hide="$ctrl.editmode">{{$ctrl.contact.phone_number}}</span>
+                        <div class="form-group" ng-show="$ctrl.editmode">
+                            <input type="text" class="form-control" name="contact.phone_number" ng-model="$ctrl.contact.phone_number">
+                        </div>
+                    </li>
+                    <li>
+                        <span ng-hide="$ctrl.editmode">{{$ctrl.contact.email}}</span>
+                        <div class="form-group" ng-show="$ctrl.editmode">
+                            <input type="text" class="form-control" name="contact.email" ng-model="$ctrl.contact.email">
+                        </div>
+                    </li>
+                    <li>
+                        <span ng-hide="$ctrl.editmode">{{$ctrl.contact.birthday_date}}</span>
+                        <div class="form-group" ng-show="$ctrl.editmode">
+                            <input type="date" class="form-control" name="contact.birthday_date" ng-model="$ctrl.contact.birtday_date">
+                        </div>
+                    </li>
+                    <li>
+                        <span ng-hide="$ctrl.editmode">{{$ctrl.contact.basic_info}}</span>
+                        <div class="form-group" ng-show="$ctrl.editmode">
+                            <input type="text" class="form-control" name="contact.basic_info" ng-model="$ctrl.contact.basic_info">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="validation-ul">
+                    <li>
+                        <div class="form-group error" ng-if="$ctrl.error.first_name" ng-hide="$ctrl.success">
+                            <p>{{ $ctrl.error.first_name.toString() }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group error" ng-if="$ctrl.error.last_name" ng-hide="$ctrl.success">
+                            <p>{{ $ctrl.error.last_name.toString() }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group error" ng-if="$ctrl.error.phone_number" ng-hide="$ctrl.success">
+                            <p>{{ $ctrl.error.phone_number.toString() }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group error" ng-if="$ctrl.error.email" ng-hide="$ctrl.success">
+                            <p>{{ $ctrl.error.email.toString() }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group error" ng-if="$ctrl.error.birthday_date" ng-hide="$ctrl.success">
+                            <p>{{ $ctrl.error.birthday_date.toString() }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group error" ng-if="$ctrl.error.basic_info" ng-hide="$ctrl.success">
+                            <p>{{ $ctrl.error.basic_info.toString() }}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button class="btn btn-primary" ng-hide="$ctrl.editmode" ng-click="$ctrl.showEditmode(true)">Edit contact</button>
+        <button class="btn btn-primary" ng-show="$ctrl.editmode" ng-click="$ctrl.update($ctrl.contact)">Save contact</button>
+        <button class="btn btn-info" ng-show="$ctrl.editmode" ng-click="$ctrl.showEditmode(false)">Cancel</button>
+    </div>
+</div>
