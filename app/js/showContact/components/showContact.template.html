@@ -41,9 +41,9 @@
                         </div>
                     </li>
                     <li>
-                        <span ng-hide="$ctrl.editmode">{{$ctrl.contact.birthday_date}}</span>
+                        <span ng-hide="$ctrl.editmode">{{$ctrl.birth.toDateString()}}</span>
                         <div class="form-group" ng-show="$ctrl.editmode">
-                            <input type="date" class="form-control" name="contact.birthday_date" ng-model="$ctrl.contact.birtday_date">
+                            <input type="date" class="form-control" name="contact.birthday_date" ng-model="$ctrl.birth">
                         </div>
                     </li>
                     <li>

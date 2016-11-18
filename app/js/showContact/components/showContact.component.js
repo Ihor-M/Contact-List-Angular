@@ -16,7 +16,9 @@ function ShowContactController(ShowContactFactory) {
         var id = next.params.id;
 
         ShowContactFactory.GetContact(id).get().$promise.then(function (response) {
-          ctrl.contact = response.contact;
+            var date = response.contact.birthday_date;
+            ctrl.birth = new Date(date);
+            ctrl.contact = response.contact;
         });
 
         ctrl.showEditmode = function (bool) {
@@ -24,7 +26,8 @@ function ShowContactController(ShowContactFactory) {
         };
 
         ctrl.update = function (contact) {
-            var id = ctrl.contact.id;
+           var id = ctrl.contact.id;
+           contact.birthday_date = ctrl.birth;
            ShowContactFactory.UpdateContact(id).update(id, contact).$promise.then(function (response) {
                if (response.code == 422) {
                    ctrl.error = response.errors;
